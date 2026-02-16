@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://tg8qmb32l2c8"]
 
-[ext_resource type="PackedScene" uid="uid://cucgwjrv4mc74" path="res://character_body_2d.tscn" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://cucgwjrv4mc74" path="res://character_body_2d.tscn" id="1_wakck"]
+[ext_resource type="Script" uid="uid://bcql7sml0ian4" path="res://collision_shape_2d.gd" id="2_ugm0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(2382.25, 231.5)
 
-[node name="Node2D" type="Node2D" unique_id=2041675859]
+[node name="FirstStage" type="Node2D" unique_id=2041675859]
 
-[node name="CharacterBody2D" parent="." unique_id=1607062281 instance=ExtResource("1_wtcfe")]
+[node name="CharacterBody2D" parent="." unique_id=1607062281 instance=ExtResource("1_wakck")]
 position = Vector2(139, 90)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=976965484]
@@ -16,6 +17,7 @@ position = Vector2(158, 151)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=928726957]
 position = Vector2(1031.875, 143.25)
 shape = SubResource("RectangleShape2D_0e48y")
+script = ExtResource("2_ugm0r")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=969242016]
 offset_left = -158.0

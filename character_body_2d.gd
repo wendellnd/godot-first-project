@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
+@onready var _animated_sprite = $AnimatedSprite2D
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var animation = AnimatedSprite2D.new()	
+
+signal is_moving(text: String)
 
 func _physics_process(delta: float) -> void:
 	# Change the animation by the name
-	animation.play("idle")
+	_animated_sprite.play("idle")
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -21,6 +24,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
+		emit_signal("is_moving", "YEEEES")
 		# TODO: Change animation to "run"
 		velocity.x = direction * SPEED
 	else:

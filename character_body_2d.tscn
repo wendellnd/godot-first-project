@@ -6,20 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
 size = Vector2(30, 40)
 
-[sub_resource type="GDScript" id="GDScript_ij6vw"]
-script/source = "extends Camera2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghijl"]
 atlas = ExtResource("2_ij6vw")
 region = Rect2(16, 41, 30, 40)
@@ -49,7 +35,6 @@ shape = SubResource("RectangleShape2D_44cfe")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=597392483]
 process_callback = 0
 position_smoothing_enabled = true
-script = SubResource("GDScript_ij6vw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=629272424]
 sprite_frames = SubResource("SpriteFrames_ghijl")
