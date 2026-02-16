@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cucgwjrv4mc74"]
+
+[ext_resource type="Script" uid="uid://cutap0pi02yuk" path="res://character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://cjn5188m8v856" path="res://sonic_sprites.png" id="2_ij6vw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
+size = Vector2(30, 40)
+
+[sub_resource type="GDScript" id="GDScript_ij6vw"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghijl"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(16, 41, 30, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghijl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghijl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1607062281]
+script = ExtResource("1_ij6vw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1902648149]
+shape = SubResource("RectangleShape2D_44cfe")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=597392483]
+process_callback = 0
+position_smoothing_enabled = true
+script = SubResource("GDScript_ij6vw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=629272424]
+sprite_frames = SubResource("SpriteFrames_ghijl")
+animation = &"idle"
